@@ -50,7 +50,11 @@ export default function Navbar() {
                             <Menu className="size-5" />
                         </Button>
 
-                        <Button asChild className="h-10 rounded-full bg-[#2f67ea] px-5 text-sm font-semibold text-white shadow-[0_10px_20px_rgba(47,103,234,0.26)] hover:bg-[#2459d4] sm:h-11 sm:px-7 sm:text-base">
+                        <Button
+                            asChild
+                            variant="cta"
+                            className="h-10 rounded-full px-5 text-sm font-semibold sm:h-11 sm:px-7 sm:text-base"
+                        >
                             <Link href={WHATSAPP_CTA_URL} target="_blank" rel="noreferrer">
                                 Contacto
                             </Link>

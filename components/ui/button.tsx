@@ -10,6 +10,27 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-primary text-primary-foreground [a]:hover:bg-primary/80",
+        cta: [
+          "relative overflow-hidden",
+          "text-white",
+          "bg-gradient-to-r from-[#2f67ea] via-[#4f8dfd] to-[#22c3ef]",
+          "bg-[length:200%_200%] bg-[position:0%_50%]",
+          "shadow-[0_14px_24px_rgba(47,103,234,0.34)]",
+          "duration-300 ease-out",
+          "transition-[transform,box-shadow,background-position,filter]",
+          "hover:bg-[position:100%_50%]",
+          "hover:brightness-105",
+          "hover:-translate-y-0.5 hover:shadow-[0_18px_30px_rgba(47,103,234,0.4)]",
+          "active:translate-y-0 active:shadow-[0_10px_18px_rgba(47,103,234,0.28)]",
+          "focus-visible:border-[#4f8dfd]/70 focus-visible:ring-[#4f8dfd]/35",
+          "before:pointer-events-none before:absolute before:inset-0",
+          "before:bg-[linear-gradient(115deg,transparent_0%,rgba(255,255,255,0.12)_35%,rgba(255,255,255,0.22)_50%,rgba(255,255,255,0.12)_65%,transparent_100%)]",
+          "before:opacity-0 before:translate-x-[-140%] before:skew-x-[-18deg]",
+          "before:transition-[transform,opacity] before:duration-700 before:ease-out",
+          "hover:before:opacity-100 hover:before:translate-x-[140%]",
+          "motion-reduce:transition-none motion-reduce:hover:transform-none",
+          "motion-reduce:before:transition-none motion-reduce:hover:before:transform-none",
+        ].join(" "),
         outline:
           "border-border bg-background hover:bg-muted hover:text-foreground aria-expanded:bg-muted aria-expanded:text-foreground dark:border-input dark:bg-input/30 dark:hover:bg-input/50",
         secondary:
