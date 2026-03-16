@@ -26,7 +26,7 @@ const containerVariants: Variants = {
   visible: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.15, // Tiempo entre cada animación hija
+      staggerChildren: 0.15,
       delayChildren: 0.1,
     },
   },
@@ -37,7 +37,7 @@ const itemVariants: Variants = {
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const }, // Easing suave
+    transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as const },
   },
 }
 
@@ -50,7 +50,7 @@ const totemContainerVariants: Variants = {
       duration: 0.8,
       ease: [0.16, 1, 0.3, 1] as const,
       staggerChildren: 0.1,
-      delayChildren: 0.4, // Empieza después de que el texto ya esté entrando
+      delayChildren: 0.4,
     },
   },
 }
@@ -70,10 +70,12 @@ export default function Hero() {
       <div className="grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-8">
         
         {/* LADO IZQUIERDO: Textos y Botones */}
+        {/* Agregado flex-col, items-center y text-center para mobile, regresando a start/left en lg */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
+          className="flex flex-col items-center text-center lg:items-start lg:text-left px-4 sm:px-0"
         >
           <motion.div variants={itemVariants} className="inline-flex items-center gap-2 rounded-full border border-[#bfdbff] bg-[#eaf3ff] px-4 py-2 text-xs font-bold uppercase tracking-[0.1em] text-[#4a8df1]">
             <span className="size-2 rounded-full bg-[#22c3ef]" aria-hidden />
@@ -89,21 +91,20 @@ export default function Hero() {
             Juegos, aplicaciones y desarrollos a medida para eventos y marcas.
           </motion.p>
 
-          <motion.div variants={itemVariants} className="mt-8 flex flex-nowrap items-center gap-3 px-1 py-1">
+          {/* Cambio clave: flex-col en mobile, flex-row en sm, gap ampliado, w-full en mobile */}
+          <motion.div variants={itemVariants} className="mt-8 flex w-full flex-col sm:w-auto sm:flex-row items-center justify-center lg:justify-start gap-4">
             <Link
               href={WHATSAPP_CTA_URL}
               target="_blank"
               rel="noreferrer"
-              className="relative cursor-pointer group px-5 py-2 sm:px-6 sm:py-2.5 bg-gradient-to-r from-[#3b82f6] to-[#4f8dfd] text-white font-bold text-sm rounded-xl shadow-lg hover:shadow-[#4f8dfd]/50 transition-all duration-300 hover:scale-105 active:scale-95 will-change-transform"
+              className="relative w-full sm:w-auto flex justify-center cursor-pointer group px-5 py-3 sm:px-6 sm:py-2.5 bg-gradient-to-r from-[#3b82f6] to-[#4f8dfd] text-white font-bold text-sm rounded-xl shadow-lg hover:shadow-[#4f8dfd]/50 transition-all duration-300 hover:scale-105 active:scale-95 will-change-transform"
             >
-              {/* Efecto de brillo + círculos (contenedor recortado) */}
               <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                 <div className="absolute top-0 left-0 w-12 h-12 bg-white/20 rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:scale-150 transition-transform duration-500" />
                 <div className="absolute bottom-0 right-0 w-12 h-12 bg-white/20 rounded-full translate-x-1/2 translate-y-1/2 group-hover:scale-150 transition-transform duration-500" />
               </div>
-              {/* Contenido */}
-              <span className="relative z-10 flex items-center gap-2">
+              <span className="relative z-10 flex items-center justify-center gap-2">
                 Solicitar presupuesto
                 <ArrowRight className="size-5 transition-transform duration-300 group-hover:translate-x-1" />
               </span>
@@ -112,7 +113,7 @@ export default function Hero() {
             <Button
               asChild
               variant="outline"
-              className="rounded-2xl border-[#dbe2ef] bg-white px-4 py-2 sm:px-6 sm:py-2.5 text-sm font-semibold text-[#1f2e4e] shadow-[0_8px_18px_rgba(15,23,42,0.06)] hover:bg-[#f8faff] whitespace-nowrap"
+              className="w-full sm:w-auto rounded-2xl border-[#dbe2ef] bg-white px-4 py-6 sm:py-2.5 text-sm font-semibold text-[#1f2e4e] shadow-[0_8px_18px_rgba(15,23,42,0.06)] hover:bg-[#f8faff] whitespace-nowrap flex justify-center"
             >
               <Link href={WHATSAPP_CTA_URL} target="_blank" rel="noreferrer">
                 Ver juegos y aplicaciones
@@ -120,7 +121,7 @@ export default function Hero() {
             </Button>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="mt-8 hidden flex-col gap-5 text-[#1f2e4e] sm:flex sm:flex-row sm:items-start sm:gap-0">
+          <motion.div variants={itemVariants} className="mt-10 hidden flex-col gap-5 text-[#1f2e4e] sm:flex sm:flex-row sm:items-start sm:gap-0">
             {kpis.map((item, index) => (
               <div
                 key={item.id}
@@ -144,9 +145,9 @@ export default function Hero() {
           variants={totemContainerVariants}
           initial="hidden"
           animate="visible"
-          className="mx-auto w-full max-w-[270px] lg:max-w-[290px]"
+          className="mx-auto flex justify-center w-full max-w-[270px] lg:max-w-[290px]"
         >
-          <div className="relative aspect-[9/15] rounded-[2.1rem] bg-gradient-to-b from-[#122444] via-[#081534] to-[#010613] p-3 shadow-[0_34px_60px_rgba(8,22,54,0.44)] ring-1 ring-[#2d4570]">
+          <div className="relative w-full aspect-[9/15] rounded-[2.1rem] bg-gradient-to-b from-[#122444] via-[#081534] to-[#010613] p-3 shadow-[0_34px_60px_rgba(8,22,54,0.44)] ring-1 ring-[#2d4570]">
             <div className="h-full rounded-[1.7rem] border border-[#2f456d] bg-gradient-to-b from-[#0f203d] via-[#07132d] to-[#010715] p-4">
               <div className="rounded-[1.4rem] border-none bg-gradient-to-br from-[#11264a] to-[#091733] p-4">
                 <div className="mb-4 flex items-center justify-between">
