@@ -53,7 +53,7 @@ export default function Navbar() {
                         <Button
                             asChild
                             variant="cta"
-                            className="h-10 rounded-full px-5 text-sm font-semibold sm:h-11 sm:px-7 sm:text-base"
+                            className="hidden h-10 rounded-full px-5 text-sm font-semibold sm:inline-flex sm:h-11 sm:px-7 sm:text-base"
                         >
                             <Link href={WHATSAPP_CTA_URL} target="_blank" rel="noreferrer">
                                 Contacto

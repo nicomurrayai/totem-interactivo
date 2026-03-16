@@ -4,27 +4,11 @@ import Link from "next/link"
 import { ArrowRight, BookOpenText, Camera, Gift, Gamepad2 } from "lucide-react"
 import { motion } from "framer-motion"
 
-import CountUp from "@/components/CountUp"
 import { Button } from "@/components/ui/button"
 import { WHATSAPP_CTA_URL } from "@/lib/whatsapp"
 
-type AnimatedKpi = {
-  id: string
-  label: string
-  animated: true
-  value: number
-  suffix: string
-}
-
-type StaticKpi = {
-  id: string
-  label: string
-  value: string
-  animated?: false
-}
-
-const kpis: Array<AnimatedKpi | StaticKpi> = [
-  { id: "events", value: 187, suffix: "+", label: "Eventos realizados", animated: true },
+const kpis = [
+  { id: "events", value: "187+", label: "Eventos realizados" },
   { id: "resolution", value: "4K", label: "Resolucion ultra" },
   { id: "support", value: "24/7", label: "Soporte tecnico" },
 ]
@@ -105,25 +89,30 @@ export default function Hero() {
             Juegos, aplicaciones y desarrollos a medida para eventos y marcas.
           </motion.p>
 
-          <motion.div variants={itemVariants} className="mt-8 flex flex-wrap items-center gap-4">
-            <Button
-              asChild
-              variant="cta"
-              className="h-11 rounded-2xl px-6 text-sm font-semibold sm:px-7 sm:text-base group/button"
+          <motion.div variants={itemVariants} className="mt-8 flex flex-nowrap items-center gap-3 px-1 py-1">
+            <Link
+              href={WHATSAPP_CTA_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="relative cursor-pointer group px-5 py-2 sm:px-6 sm:py-2.5 bg-gradient-to-r from-[#3b82f6] to-[#4f8dfd] text-white font-bold text-sm rounded-xl shadow-lg hover:shadow-[#4f8dfd]/50 transition-all duration-300 hover:scale-105 active:scale-95 will-change-transform"
             >
-              <Link href={WHATSAPP_CTA_URL} target="_blank" rel="noreferrer">
+              {/* Efecto de brillo + círculos (contenedor recortado) */}
+              <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
+                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                <div className="absolute top-0 left-0 w-12 h-12 bg-white/20 rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:scale-150 transition-transform duration-500" />
+                <div className="absolute bottom-0 right-0 w-12 h-12 bg-white/20 rounded-full translate-x-1/2 translate-y-1/2 group-hover:scale-150 transition-transform duration-500" />
+              </div>
+              {/* Contenido */}
+              <span className="relative z-10 flex items-center gap-2">
                 Solicitar presupuesto
-                <ArrowRight
-                  data-icon="inline-end"
-                  className="size-5 transition-transform duration-300 group-hover/button:translate-x-0.5 ml-2"
-                />
-              </Link>
-            </Button>
+                <ArrowRight className="size-5 transition-transform duration-300 group-hover:translate-x-1" />
+              </span>
+            </Link>
 
             <Button
               asChild
               variant="outline"
-              className="h-11 rounded-2xl border-[#dbe2ef] bg-white px-5 text-sm font-semibold text-[#1f2e4e] shadow-[0_8px_18px_rgba(15,23,42,0.06)] hover:bg-[#f8faff] sm:px-7 sm:text-base"
+              className="rounded-2xl border-[#dbe2ef] bg-white px-4 py-2 sm:px-6 sm:py-2.5 text-sm font-semibold text-[#1f2e4e] shadow-[0_8px_18px_rgba(15,23,42,0.06)] hover:bg-[#f8faff] whitespace-nowrap"
             >
               <Link href={WHATSAPP_CTA_URL} target="_blank" rel="noreferrer">
                 Ver juegos y aplicaciones
@@ -131,7 +120,7 @@ export default function Hero() {
             </Button>
           </motion.div>
 
-          <motion.div variants={itemVariants} className="mt-8 flex flex-col gap-5 text-[#1f2e4e] sm:flex-row sm:items-start sm:gap-0">
+          <motion.div variants={itemVariants} className="mt-8 hidden flex-col gap-5 text-[#1f2e4e] sm:flex sm:flex-row sm:items-start sm:gap-0">
             {kpis.map((item, index) => (
               <div
                 key={item.id}
@@ -140,11 +129,7 @@ export default function Hero() {
                 }`}
               >
                 <p className="text-[1.6rem] font-bold leading-none tracking-[-0.03em] tabular-nums">
-                  {item.animated ? (
-                    <CountUp to={item.value} suffix={item.suffix} durationMs={650} />
-                  ) : (
-                    item.value
-                  )}
+                  {item.value}
                 </p>
                 <p className="mt-1 text-sm font-semibold uppercase tracking-[0.12em] text-[#7182a0]">
                   {item.label}
