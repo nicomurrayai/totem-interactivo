@@ -92,17 +92,16 @@ export default function Hero() {
           </motion.p>
 
           {/* Cambio clave: flex-col en mobile, flex-row en sm, gap ampliado, w-full en mobile */}
-          <motion.div variants={itemVariants} className="mt-8 flex w-full flex-col sm:w-auto sm:flex-row items-center justify-center lg:justify-start gap-4">
+       <motion.div variants={itemVariants} className="mt-8 flex w-full flex-col sm:w-auto sm:flex-row items-center justify-center lg:justify-start gap-4">
             <Link
               href={WHATSAPP_CTA_URL}
               target="_blank"
               rel="noreferrer"
-              className="relative w-full sm:w-auto flex justify-center cursor-pointer group px-5 py-3 sm:px-6 sm:py-2.5 bg-gradient-to-r from-[#3b82f6] to-[#4f8dfd] text-white font-bold text-sm rounded-xl shadow-lg hover:shadow-[#4f8dfd]/50 transition-all duration-300 hover:scale-105 active:scale-95 will-change-transform"
+              className="relative w-full sm:w-auto flex items-center justify-center group px-6 py-3 bg-gradient-to-r from-[#3b82f6] to-[#4f8dfd] text-white font-bold text-sm rounded-xl shadow-lg hover:shadow-[#4f8dfd]/50 transition-all duration-300 will-change-transform"
             >
               <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
+                {/* Dejamos solo el efecto de brillo (shine) y eliminamos los círculos que causaban el corte visual */}
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
-                <div className="absolute top-0 left-0 w-12 h-12 bg-white/20 rounded-full -translate-x-1/2 -translate-y-1/2 group-hover:scale-150 transition-transform duration-500" />
-                <div className="absolute bottom-0 right-0 w-12 h-12 bg-white/20 rounded-full translate-x-1/2 translate-y-1/2 group-hover:scale-150 transition-transform duration-500" />
               </div>
               <span className="relative z-10 flex items-center justify-center gap-2">
                 Solicitar presupuesto
@@ -113,7 +112,7 @@ export default function Hero() {
             <Button
               asChild
               variant="outline"
-              className="w-full sm:w-auto rounded-2xl border-[#dbe2ef] bg-white px-4 py-6 sm:py-2.5 text-sm font-semibold text-[#1f2e4e] shadow-[0_8px_18px_rgba(15,23,42,0.06)] hover:bg-[#f8faff] whitespace-nowrap flex justify-center"
+              className="w-full sm:w-auto flex items-center justify-center h-auto px-6 py-3 rounded-xl border-[#dbe2ef] bg-white text-sm font-semibold text-[#1f2e4e] shadow-[0_8px_18px_rgba(15,23,42,0.06)] hover:bg-[#f8faff] whitespace-nowrap transition-all duration-300"
             >
               <Link href={WHATSAPP_CTA_URL} target="_blank" rel="noreferrer">
                 Ver juegos y aplicaciones
