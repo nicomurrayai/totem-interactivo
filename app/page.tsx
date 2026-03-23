@@ -1,3 +1,4 @@
+import BrandsMarquee from "@/components/BrandsMarquee"
 import Hero from "@/components/Hero"
 import Navbar from "@/components/Navbar"
 
@@ -7,6 +8,7 @@ export default function Home() {
       <div className="mx-auto w-full max-w-[1320px] px-4 sm:px-7 lg:px-9">
         <Navbar />
         <Hero />
+        <BrandsMarquee />
       </div>
     </main>
   )

@@ -6,10 +6,9 @@ import { Button } from "@/components/ui/button"
 import { WHATSAPP_CTA_URL } from "@/lib/whatsapp"
 
 const navItems = [
-    { href: "#beneficios", label: "Beneficios" },
-    { href: "#como-funciona", label: "Como funciona" },
+    { href: "#beneficios", label: "Servicio" },
+    { href: "#como-funciona", label: "Como trabajamos" },
     { href: "#clientes", label: "Clientes" },
-    { href: "#faq", label: "FAQ" },
 ]
 
 export default function Navbar() {
@@ -33,7 +32,7 @@ export default function Navbar() {
                             <Link
                                 key={item.href}
                                 href={item.href}
-                                className="transition-colors hover:text-[#1f2e4e]"
+                                className="relative pb-0.5 transition-colors duration-200 hover:text-[#3b82f6] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:rounded-full after:bg-gradient-to-r after:from-[#3b82f6] after:to-[#4f8dfd] after:transition-transform after:duration-300 hover:after:scale-x-100"
                             >
                                 {item.label}
                             </Link>

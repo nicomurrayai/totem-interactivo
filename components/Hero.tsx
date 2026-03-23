@@ -9,15 +9,15 @@ import { WHATSAPP_CTA_URL } from "@/lib/whatsapp"
 
 const kpis = [
   { id: "events", value: "187+", label: "Eventos realizados" },
-  { id: "resolution", value: "4K", label: "Resolucion ultra" },
+  { id: "resolution", value: "4K", label: "Resolución ultra" },
   { id: "support", value: "24/7", label: "Soporte tecnico" },
 ]
 
 const totemCards = [
   { id: "play", icon: Gamepad2, label: "Juegos" },
-  { id: "photo", icon: Camera, label: "Foto" },
-  { id: "catalog", icon: BookOpenText, label: "Catalogo" },
-  { id: "gift", icon: Gift, label: "Promos" },
+  { id: "photo", icon: Camera, label: "Fotos" },
+  { id: "catalog", icon: BookOpenText, label: "Marcas" },
+  { id: "gift", icon: Gift, label: "Eventos" },
 ]
 
 // --- Animaciones (Variants) ---
@@ -77,9 +77,18 @@ export default function Hero() {
           animate="visible"
           className="flex flex-col items-center text-center lg:items-start lg:text-left px-4 sm:px-0"
         >
-          <motion.div variants={itemVariants} className="inline-flex items-center gap-2 rounded-full border border-[#bfdbff] bg-[#eaf3ff] px-4 py-2 text-xs font-bold uppercase tracking-[0.1em] text-[#4a8df1]">
-            <span className="size-2 rounded-full bg-[#22c3ef]" aria-hidden />
-            Nueva generacion 2026
+          {/* BADGE PREMIUM ACTUALIZADO */}
+          <motion.div 
+            variants={itemVariants} 
+            className="inline-flex items-center gap-2.5 rounded-full px-5 py-2.5 text-xs font-semibold uppercase tracking-widest bg-gradient-to-br from-white to-[#eff6ff]/70 backdrop-blur-sm border border-[#cbdff8] shadow-sm shadow-[#4a8df1]/10 text-[#1e3a8a]"
+          >
+            <span className="relative flex h-2 w-2">
+              <span className="relative inline-flex size-2 rounded-full bg-[#3b82f6]"></span>
+              <span className="absolute inline-flex h-full w-full rounded-full bg-[#60a5fa] opacity-75 blur-[1px]"></span>
+            </span>
+            <span>Nueva generación 2026</span>
+            <span className="opacity-40">|</span>
+            <span className="font-bold text-[#3b82f6]">4K</span>
           </motion.div>
 
           <motion.h1 variants={itemVariants} className="mt-6 max-w-[18ch] text-[clamp(1.65rem,3.6vw,3rem)] font-bold leading-[1.2] tracking-[-0.04em] text-[#0d1733]">

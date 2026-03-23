@@ -127,3 +127,35 @@
     @apply font-sans;
   }
 }
+
+@keyframes brands-marquee {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@layer utilities {
+  .brands-marquee {
+    overflow: hidden;
+  }
+
+  .brands-marquee-track {
+    animation: brands-marquee 98s linear infinite;
+    will-change: transform;
+  }
+
+  .brands-marquee:hover .brands-marquee-track {
+    animation-play-state: paused;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brands-marquee-track {
+    animation: none;
+    transform: translate3d(0, 0, 0);
+  }
+}
