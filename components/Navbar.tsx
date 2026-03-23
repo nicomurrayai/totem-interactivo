@@ -1,3 +1,5 @@
+"use client"
+
 import Image from "next/image"
 import Link from "next/link"
 import { Menu } from "lucide-react"
@@ -8,13 +10,13 @@ import { WHATSAPP_CTA_URL } from "@/lib/whatsapp"
 const navItems = [
     { href: "#beneficios", label: "Servicio" },
     { href: "#como-funciona", label: "Como trabajamos" },
-    { href: "#clientes", label: "Clientes" },
+    { href: "#clientes", label: "Casos de éxito" },
 ]
 
 export default function Navbar() {
     return (
         <header className="sticky top-0 z-50 pt-4 sm:pt-6">
-            <div className="rounded-full border border-[#d8deea] bg-white px-3 py-2 shadow-[0_8px_18px_rgba(15,23,42,0.06)]">
+            <div className="rounded-full border border-[#d8deea]/80 bg-white/75 px-3 py-2 backdrop-blur-md shadow-[0_10px_24px_rgba(15,23,42,0.12)] transition-all duration-300">
                 <div className="flex items-center justify-between gap-3">
                     <Link href="/" className="flex shrink-0 items-center rounded-full px-2 py-1">
                         <Image

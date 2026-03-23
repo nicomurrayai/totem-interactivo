@@ -91,13 +91,13 @@ export default function Hero() {
             <span className="font-bold text-[#3b82f6]">4K</span>
           </motion.div>
 
-          <motion.h1 variants={itemVariants} className="mt-6 max-w-[18ch] text-[clamp(1.65rem,3.6vw,3rem)] font-bold leading-[1.2] tracking-[-0.04em] text-[#0d1733]">
-            Totems interactivos para experiencias{" "}
-            <span className="text-[#4f8dfd]">que impactan.</span>
+          <motion.h1 variants={itemVariants} className="mt-6  text-[clamp(1.65rem,3.6vw,3rem)] font-bold leading-[1.2] tracking-[-0.04em] text-[#0d1733]">
+            Totems interactivos para  <span className="text-[#4f8dfd]">experiencias</span>{" "} que
+            <span className="text-[#4f8dfd]"> impactan.</span>
           </motion.h1>
 
-          <motion.p variants={itemVariants} className="mt-6 max-w-[28ch] text-[clamp(0.95rem,1.4vw,1.25rem)] font-semibold leading-[1.22] text-[#364563]">
-            Juegos, aplicaciones y desarrollos a medida para eventos y marcas.
+          <motion.p variants={itemVariants} className="mt-6  text-[clamp(0.95rem,1.4vw,1.25rem)] font-semibold leading-[1.22] text-[#364563]">
+            Juegos y aplicaciones a medida para eventos y marcas.
           </motion.p>
 
           {/* Cambio clave: flex-col en mobile, flex-row en sm, gap ampliado, w-full en mobile */}
