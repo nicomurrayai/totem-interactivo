@@ -8,8 +8,8 @@ import { Button } from "@/components/ui/button"
 import { WHATSAPP_CTA_URL } from "@/lib/whatsapp"
 
 const navItems = [
-    { href: "#como-funciona", label: "Como trabajamos" },
     { href: "#clientes", label: "Casos de éxito" },
+    { href: "#como-funciona", label: "Como trabajamos" },
 ]
 
 export default function Navbar() {
