@@ -21,9 +21,9 @@ export default function Navbar() {
                         <Image
                             src="/logo.png"
                             alt="Adinnov Carteleria Digital"
-                            width={128}
-                            height={30  }
-                            className="h-6 w-auto sm:h-7"
+                            width={168}
+                            height={30}
+                            className="h-6 w-auto sm:h-8"
                             priority
                         />
                     </Link>
@@ -50,15 +50,17 @@ export default function Navbar() {
                             <Menu className="size-5" />
                         </Button>
 
-                        <Button
-                            asChild
-                            variant="cta"
-                            className="hidden h-10 rounded-full px-5 text-sm font-semibold sm:inline-flex sm:h-11 sm:px-7 sm:text-base"
+                        <Link
+                            href={WHATSAPP_CTA_URL}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="relative hidden items-center justify-center group px-4 py-1 sm:px-5 sm:py-1.5 bg-gradient-to-r from-[#3b82f6] to-[#4f8dfd] text-white font-bold text-xs sm:text-sm rounded-xl shadow-lg hover:shadow-[#4f8dfd]/50 transition-all duration-300 will-change-transform sm:inline-flex"
                         >
-                            <Link href={WHATSAPP_CTA_URL} target="_blank" rel="noreferrer">
-                                Contacto
-                            </Link>
-                        </Button>
+                            <div className="absolute inset-0 rounded-xl overflow-hidden pointer-events-none">
+                                <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                            </div>
+                            <span className="relative z-10">Contacto</span>
+                        </Link>
                     </div>
                 </div>
             </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist_Mono, Montserrat } from "next/font/google";
 import "./globals.css";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 
 const montserrat = Montserrat({
   variable: "--font-montserrat",
@@ -29,6 +30,7 @@ export default function RootLayout({
         className={`${montserrat.className} ${montserrat.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <WhatsAppFloat />
       </body>
     </html>
   );
