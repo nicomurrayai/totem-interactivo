@@ -49,9 +49,7 @@ export default function SuccessCasesSection() {
                   <span className="rounded-full border border-white/70 bg-white/80 px-3 py-1 text-[0.66rem] font-semibold uppercase tracking-[0.2em] text-[#42628f] shadow-[0_8px_18px_rgba(37,99,235,0.10)] backdrop-blur-sm">
                     {project.client}
                   </span>
-                  <span className="rounded-full border border-[#cfe1ff] bg-[#eef5ff]/90 px-3 py-1 text-[0.7rem] font-medium text-[#3f5f8b]">
-                    Demo
-                  </span>
+                
                 </div>
               </div>
 
