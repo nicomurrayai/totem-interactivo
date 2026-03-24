@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { ArrowRight, BookOpenText, Camera, Gift, Gamepad2, X } from "lucide-react"
+import { ArrowRight, BookOpenText, Camera, Gift, Gamepad2, X, Play } from "lucide-react"
 import { motion, AnimatePresence, type Variants } from "framer-motion"
 
 import { Button } from "@/components/ui/button"
@@ -202,19 +202,31 @@ export default function Hero() {
                       key={id}
                       variants={cardVariants}
                       whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.97 }}
                       onClick={() => setActiveVideo(videoUrl)}
-                      className="rounded-[1.2rem] border border-[#3e5a89] bg-[#1b3159]/65 px-3 py-4 cursor-pointer transition-colors"
+                      className="group relative rounded-[1.2rem] border border-[#3e5a89] bg-[#1b3159]/65 px-3 py-4 cursor-pointer transition-all hover:border-[#4f87ee]/60 hover:bg-[#1b3159]/90 hover:shadow-[0_0_20px_rgba(79,135,238,0.15)]"
                     >
-                      <div className="mx-auto flex size-[3.25rem] items-center justify-center rounded-2xl bg-[#315897] text-white">
-                        <Icon className="size-6" />
+                      {/* Play indicator */}
+                     
+
+                      <div className="relative mx-auto flex size-[3.25rem] items-center justify-center rounded-2xl bg-[#315897] text-white transition-colors group-hover:bg-[#3d6ab5]">
+                        <Icon className="size-6 transition-opacity duration-200 group-hover:opacity-0" />
+                        <Play className="absolute size-6 fill-current opacity-0 transition-opacity duration-200 group-hover:opacity-100" />
+                        {/* Pulse ring */}
+                        <span className="absolute inset-0 rounded-2xl border border-[#4f87ee]/50 animate-[ping_2.5s_ease-in-out_infinite] opacity-40" />
                       </div>
                       <div className="mx-auto mt-3 h-1.5 w-10 rounded-full bg-[#5b8fde]/70" />
-                      <p className="mt-2 text-center text-xs font-medium text-[#9fb6dc]">
+                      <p className="mt-2 text-center text-xs font-medium text-[#9fb6dc] transition-colors group-hover:text-[#c0d4f0]">
                         {label}
                       </p>
                     </motion.div>
                   ))}
                 </div>
+
+                {/* Hint text */}
+                <p className="mt-5 text-center text-xs font-medium tracking-wide text-[#5b7caa] animate-pulse">
+                  Toca para ver 
+                </p>
               </div>
             </div>
           </div>
