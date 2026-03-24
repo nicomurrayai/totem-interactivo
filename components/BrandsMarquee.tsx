@@ -43,7 +43,7 @@ const marqueeBrands = [...brands, ...brands]
 export default function BrandsMarquee() {
   return (
     <section aria-labelledby="brands-title" className="pb-16 sm:pb-20 lg:pb-24">
-      <div className="relative overflow-hidden rounded-[2.2rem] border border-white/80 bg-[linear-gradient(180deg,rgba(255,255,255,0.82),rgba(255,255,255,0.58))] py-7 shadow-[0_20px_50px_rgba(15,23,42,0.05)] ring-1 ring-white/55 backdrop-blur-md sm:py-9">
+      <div className="relative overflow-hidden rounded-[2.2rem] bg-[linear-gradient(180deg,rgba(255,255,255,0.82),rgba(255,255,255,0.58))] py-7 shadow-[0_20px_50px_rgba(15,23,42,0.05)] ring-1 ring-white/55 backdrop-blur-md sm:py-9">
         <div className="pointer-events-none absolute inset-x-10 top-0 h-px bg-linear-to-r from-transparent via-white to-transparent opacity-80" />
         <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-20 bg-linear-to-r from-[#f4f6fb] via-[#f4f6fb]/94 to-transparent sm:w-28" />
         <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-20 bg-linear-to-l from-[#f4f6fb] via-[#f4f6fb]/94 to-transparent sm:w-28" />

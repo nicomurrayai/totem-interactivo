@@ -1,6 +1,8 @@
 import BrandsMarquee from "@/components/BrandsMarquee"
 import Hero from "@/components/Hero"
+import HowWeWorkSection from "@/components/HowWeWorkSection"
 import Navbar from "@/components/Navbar"
+import SuccessCasesSection from "@/components/SuccessCasesSection"
 
 export default function Home() {
   return (
@@ -9,6 +11,8 @@ export default function Home() {
         <Navbar />
         <Hero />
         <BrandsMarquee />
+        <SuccessCasesSection />
+        <HowWeWorkSection />
       </div>
     </main>
   )

@@ -1,0 +1,53 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="900" rx="48" fill="url(#bg)"/>
+  <g opacity="0.78">
+    <circle cx="220" cy="220" r="170" fill="url(#glow1)"/>
+    <circle cx="936" cy="666" r="220" fill="url(#glow2)"/>
+  </g>
+  <rect x="142" y="154" width="916" height="592" rx="40" fill="white" fill-opacity="0.76" stroke="white" stroke-opacity="0.76"/>
+  <rect x="208" y="220" width="784" height="460" rx="30" fill="url(#surface)"/>
+  <rect x="260" y="274" width="226" height="352" rx="26" fill="url(#tower)"/>
+  <rect x="540" y="274" width="388" height="126" rx="24" fill="white" fill-opacity="0.84"/>
+  <rect x="540" y="428" width="388" height="198" rx="24" fill="#F8FBFF"/>
+  <rect x="310" y="322" width="126" height="126" rx="28" fill="white" fill-opacity="0.18"/>
+  <path d="M347 385H399" stroke="white" stroke-width="18" stroke-linecap="round"/>
+  <path d="M373 359L373 411" stroke="white" stroke-width="18" stroke-linecap="round"/>
+  <rect x="302" y="490" width="142" height="14" rx="7" fill="#A8CCFF"/>
+  <rect x="286" y="522" width="174" height="14" rx="7" fill="#C0DBFF"/>
+  <rect x="286" y="554" width="174" height="14" rx="7" fill="#D5E7FF"/>
+  <rect x="586" y="308" width="164" height="16" rx="8" fill="#BCD6FF"/>
+  <rect x="586" y="340" width="204" height="12" rx="6" fill="#D5E6FF"/>
+  <rect x="586" y="462" width="126" height="126" rx="24" fill="url(#gameTile)"/>
+  <rect x="734" y="462" width="146" height="22" rx="11" fill="#AACBFF"/>
+  <rect x="734" y="504" width="132" height="16" rx="8" fill="#C8DDFF"/>
+  <rect x="734" y="534" width="154" height="16" rx="8" fill="#D8E8FF"/>
+  <rect x="734" y="572" width="124" height="20" rx="10" fill="#1F5FE0"/>
+  <defs>
+    <linearGradient id="bg" x1="100" y1="84" x2="1104" y2="820" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8FBFF"/>
+      <stop offset="0.52" stop-color="#E3EEFF"/>
+      <stop offset="1" stop-color="#F3F8FF"/>
+    </linearGradient>
+    <linearGradient id="surface" x1="208" y1="220" x2="992" y2="680" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#EEF6FF"/>
+      <stop offset="0.42" stop-color="#DDEBFF"/>
+      <stop offset="1" stop-color="#F7FBFF"/>
+    </linearGradient>
+    <linearGradient id="tower" x1="260" y1="274" x2="486" y2="626" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1B4DA5"/>
+      <stop offset="1" stop-color="#0A183A"/>
+    </linearGradient>
+    <linearGradient id="gameTile" x1="586" y1="462" x2="712" y2="588" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#55A4FF"/>
+      <stop offset="1" stop-color="#D5E8FF"/>
+    </linearGradient>
+    <radialGradient id="glow1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(220 220) rotate(90) scale(170)">
+      <stop stop-color="#93C5FD" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#93C5FD" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="glow2" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(936 666) rotate(90) scale(220)">
+      <stop stop-color="#7DD3FC" stop-opacity="0.32"/>
+      <stop offset="1" stop-color="#7DD3FC" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>
