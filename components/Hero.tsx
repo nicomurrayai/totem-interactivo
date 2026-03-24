@@ -1,8 +1,9 @@
 "use client"
 
+import { useState } from "react"
 import Link from "next/link"
-import { ArrowRight, BookOpenText, Camera, Gift, Gamepad2 } from "lucide-react"
-import { motion, type Variants } from "framer-motion"
+import { ArrowRight, BookOpenText, Camera, Gift, Gamepad2, X } from "lucide-react"
+import { motion, AnimatePresence, type Variants } from "framer-motion"
 
 import { Button } from "@/components/ui/button"
 import { WHATSAPP_CTA_URL } from "@/lib/whatsapp"
@@ -13,11 +14,13 @@ const kpis = [
   { id: "support", value: "24/7", label: "Soporte tecnico" },
 ]
 
+const SAMPLE_VIDEO = "https://storage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4"
+
 const totemCards = [
-  { id: "play", icon: Gamepad2, label: "Juegos" },
-  { id: "photo", icon: Camera, label: "Fotos" },
-  { id: "catalog", icon: BookOpenText, label: "Marcas" },
-  { id: "gift", icon: Gift, label: "Eventos" },
+  { id: "play", icon: Gamepad2, label: "Juegos", videoUrl: SAMPLE_VIDEO },
+  { id: "photo", icon: Camera, label: "Fotos", videoUrl: SAMPLE_VIDEO },
+  { id: "catalog", icon: BookOpenText, label: "Marcas", videoUrl: SAMPLE_VIDEO },
+  { id: "gift", icon: Gift, label: "Eventos", videoUrl: SAMPLE_VIDEO },
 ]
 
 // --- Animaciones (Variants) ---
@@ -65,10 +68,12 @@ const cardVariants: Variants = {
 }
 
 export default function Hero() {
+  const [activeVideo, setActiveVideo] = useState<string | null>(null)
+
   return (
     <section className="pb-10 pt-8 sm:pb-16 sm:pt-12 lg:pb-20 overflow-hidden">
       <div className="grid items-center gap-10 lg:grid-cols-[1.08fr_0.92fr] lg:gap-8">
-        
+
         {/* LADO IZQUIERDO: Textos y Botones */}
         {/* Agregado flex-col, items-center y text-center para mobile, regresando a start/left en lg */}
         <motion.div
@@ -78,12 +83,12 @@ export default function Hero() {
           className="flex flex-col items-center text-center lg:items-start lg:text-left px-4 sm:px-0"
         >
           {/* BADGE PREMIUM ACTUALIZADO */}
-          <motion.div 
-            variants={itemVariants} 
-            className="inline-flex items-center gap-2.5 rounded-full px-5 py-2.5 text-xs font-semibold uppercase tracking-widest bg-gradient-to-br from-white to-[#eff6ff]/70 backdrop-blur-sm border border-[#cbdff8] shadow-sm shadow-[#4a8df1]/10 text-[#1e3a8a]"
+          <motion.div
+            variants={itemVariants}
+            className="inline-flex items-center gap-1.5 rounded-full border border-[#cbdff8] bg-gradient-to-br from-white to-[#eff6ff]/70 px-3 py-2 text-[10px] font-semibold uppercase tracking-[0.18em] shadow-sm shadow-[#4a8df1]/10 backdrop-blur-sm text-[#1e3a8a] sm:gap-2.5 sm:px-5 sm:py-2.5 sm:text-xs sm:tracking-widest"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="relative inline-flex size-2 rounded-full bg-[#3b82f6]"></span>
+            <span className="relative flex h-1.5 w-1.5 sm:h-2 sm:w-2">
+              <span className="relative inline-flex size-1.5 rounded-full bg-[#3b82f6] sm:size-2"></span>
               <span className="absolute inline-flex h-full w-full rounded-full bg-[#60a5fa] opacity-75 blur-[1px]"></span>
             </span>
             <span>Nueva generación 2026</span>
@@ -100,8 +105,8 @@ export default function Hero() {
             Juegos y aplicaciones a medida para eventos y marcas.
           </motion.p>
 
-          {/* Cambio clave: flex-col en mobile, flex-row en sm, gap ampliado, w-full en mobile */}
-       <motion.div variants={itemVariants} className="mt-8 flex w-full flex-col sm:w-auto sm:flex-row items-center justify-center lg:justify-start gap-4">
+
+          <motion.div variants={itemVariants} className="mt-8 flex w-full flex-col sm:w-auto sm:flex-row items-center justify-center lg:justify-start gap-4">
             <Link
               href={WHATSAPP_CTA_URL}
               target="_blank"
@@ -133,9 +138,8 @@ export default function Hero() {
             {kpis.map((item, index) => (
               <div
                 key={item.id}
-                className={`sm:px-7 ${
-                  index === 0 ? "sm:pl-0" : "sm:border-l sm:border-[#9aa7bf]"
-                }`}
+                className={`sm:px-7 ${index === 0 ? "sm:pl-0" : "sm:border-l sm:border-[#9aa7bf]"
+                  }`}
               >
                 <p className="text-[1.6rem] font-bold leading-none tracking-[-0.03em] tabular-nums">
                   {item.value}
@@ -149,14 +153,43 @@ export default function Hero() {
         </motion.div>
 
         {/* LADO DERECHO: 3D RENDER */}
-        <motion.div 
+        <motion.div
           variants={totemContainerVariants}
           initial="hidden"
           animate="visible"
           className="mx-auto flex justify-center w-full max-w-[270px] lg:max-w-[290px]"
         >
           <div className="relative w-full aspect-[9/15] rounded-[2.1rem] bg-gradient-to-b from-[#122444] via-[#081534] to-[#010613] p-3 shadow-[0_34px_60px_rgba(8,22,54,0.44)] ring-1 ring-[#2d4570]">
-            <div className="h-full rounded-[1.7rem] border border-[#2f456d] bg-gradient-to-b from-[#0f203d] via-[#07132d] to-[#010715] p-4">
+            <div className="relative h-full rounded-[1.7rem] border border-[#2f456d] bg-gradient-to-b from-[#0f203d] via-[#07132d] to-[#010715] p-4 overflow-hidden">
+
+              {/* Video overlay */}
+              <AnimatePresence>
+                {activeVideo && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute inset-0 z-10 flex items-center justify-center rounded-[1.7rem] bg-black"
+                  >
+                    <video
+                      src={activeVideo}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="h-full w-full rounded-[1.7rem] object-cover"
+                    />
+                    <button
+                      onClick={() => setActiveVideo(null)}
+                      className="absolute right-2 top-2 z-20 flex size-7 items-center justify-center rounded-full bg-black/60 text-white backdrop-blur-sm transition-colors hover:bg-black/80"
+                    >
+                      <X className="size-4" />
+                    </button>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+
               <div className="rounded-[1.4rem] border-none bg-gradient-to-br from-[#11264a] to-[#091733] p-4">
                 <div className="mb-4 flex items-center justify-between">
                   <div className="h-1.5 w-14 rounded-full bg-[#4f87ee]" />
@@ -164,11 +197,12 @@ export default function Hero() {
                 </div>
 
                 <div className="grid grid-cols-2 gap-3">
-                  {totemCards.map(({ id, icon: Icon, label }) => (
+                  {totemCards.map(({ id, icon: Icon, label, videoUrl }) => (
                     <motion.div
                       key={id}
                       variants={cardVariants}
                       whileHover={{ scale: 1.05 }}
+                      onClick={() => setActiveVideo(videoUrl)}
                       className="rounded-[1.2rem] border border-[#3e5a89] bg-[#1b3159]/65 px-3 py-4 cursor-pointer transition-colors"
                     >
                       <div className="mx-auto flex size-[3.25rem] items-center justify-center rounded-2xl bg-[#315897] text-white">
