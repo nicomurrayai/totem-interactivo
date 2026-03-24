@@ -224,7 +224,7 @@ export default function Hero() {
                 </div>
 
                 {/* Hint text */}
-                <p className="mt-5 text-center text-xs font-medium tracking-wide text-[#5b7caa] animate-pulse">
+                <p className="mt-5 text-center text-xs sm:text-sm font-medium tracking-wide text-[#5b7caa] animate-pulse">
                   Toca para ver 
                 </p>
               </div>
