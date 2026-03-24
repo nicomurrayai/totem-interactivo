@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Totem Interactivo",
-  description: "Servicios de Totems Interactivos para eventos",
+  title: "Totem Interactivo | Juegos y aplicaciones a medida",
+  description: "Servicio de desarrollo de juegos y aplicaciones a medida para eventos y marcas.",
 };
 
 export default function RootLayout({
@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="es">
       <body
         className={`${inter.className} ${inter.variable} ${geistMono.variable} antialiased`}
       >

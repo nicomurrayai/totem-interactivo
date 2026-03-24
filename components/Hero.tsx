@@ -101,9 +101,9 @@ export default function Hero() {
             <span className="text-[#4f8dfd]"> impactan.</span>
           </motion.h1>
 
-          <motion.p variants={itemVariants} className="mt-6  text-[clamp(0.95rem,1.4vw,1.25rem)] font-semibold leading-[1.22] text-[#364563]">
+          <motion.h2 variants={itemVariants} className="mt-6  text-[clamp(0.95rem,1.4vw,1.25rem)] font-semibold leading-[1.22] text-[#364563]">
             Juegos y aplicaciones a medida para eventos y marcas.
-          </motion.p>
+          </motion.h2>
 
 
           <motion.div variants={itemVariants} className="mt-8 flex w-full flex-col sm:w-auto sm:flex-row items-center justify-center lg:justify-start gap-4">
@@ -128,8 +128,8 @@ export default function Hero() {
               variant="outline"
               className="w-full sm:w-auto flex items-center justify-center h-auto px-6 py-3 rounded-xl border-[#dbe2ef] bg-white text-sm font-semibold text-[#1f2e4e] shadow-[0_8px_18px_rgba(15,23,42,0.06)] hover:bg-[#f8faff] whitespace-nowrap transition-all duration-300"
             >
-              <Link href={WHATSAPP_CTA_URL} target="_blank" rel="noreferrer">
-                Ver juegos y aplicaciones
+              <Link href="#casos-exito">
+                Ver casos de exito
               </Link>
             </Button>
           </motion.div>
